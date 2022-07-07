@@ -1,0 +1,80 @@
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+}
+body{
+    animation: backGroundTransition 10s ease-in-out infinite;
+    align-items: center;
+    background: linear-gradient(45deg, #ff4a00, #ff7e04, #ffb900, #ffa100, #ff640b);
+    background-size: 400% 400%;
+    display: flex;
+    height: 100vh;
+    justify-content: center;
+}
+
+@keyframes backGroundTransition{
+    0%{
+        background-position: 0% 80%;
+    }
+    50%{
+        background-position: 80% 100%;
+    }
+    100%{
+        background-position: 0% 90%;
+    }
+}
+
+.memory-game{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    height: 100%;
+    padding: .5rem;
+    perspective: 1000px;
+    margin: auto;
+    width: 90%;
+}
+
+.card{
+    /* box-shadow: 1px 1px 1px rgba(0,0,0,.3); */
+    cursor: pointer;
+    height: calc(33.33% -.1rem);
+    margin: .5rem;
+    padding: 1rem;
+    position: relative;
+    transform: scale(1);
+    transform-style: preserve-3d; /*Não vai vai deixa o elemento achatado np plano */
+    transition: transform .9s;
+    width: calc(10% - 1rem) ;
+
+}
+
+.card:active{
+    transform: scale(.9);
+    transition: .5s;
+}
+
+.card-back, .card-front{
+    backface-visibility: hidden; /*Propriedade que retira o "verso espelhado" do elemento*/
+    border-radius: 10px;
+    height: 200px;
+    left: 0rem;
+    margin: .1rem;
+    padding: .1rem;
+    position: absolute;
+    top: 0rem;
+    width: 100px;
+
+}
+
+.card-front{
+    transform: rotateY(180deg);
+}
+
+/*Flip card animation*/
+
+.card.flip{
+    transform: rotateY(180deg);
+}
