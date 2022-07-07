@@ -56,7 +56,7 @@ function resetBoard() {
 //FUNÇÃO PARA EMBARALHAR AS CARTAS
 (function shuffle() {
     cards.forEach((card) => {
-        let ramdomPosition = Math.floor(Math.random() * 20);
+        let ramdomPosition = Math.floor(Math.random() * 30);
         card.style.order = ramdomPosition;
     })
 })();
